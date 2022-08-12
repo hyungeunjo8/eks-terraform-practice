@@ -1,5 +1,4 @@
-variable "aws_region" {}
-variable "vpc_name" {}
+variable "name" {}
 variable "vpc_cidr" {}
 variable "az" {
   type = list(string)

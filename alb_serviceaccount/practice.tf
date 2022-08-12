@@ -12,7 +12,7 @@ module "alb_practice" {
   eks_cluster_endpoint                   = data.terraform_remote_state.eks.outputs.eks_cluster_endpoint
   eks_cluster_certificate_authority_data = data.terraform_remote_state.eks.outputs.eks_cluster_certificate_authority_data
   eks_cluster_id                         = data.terraform_remote_state.eks.outputs.eks_cluster_id
-  vpc_vpc_id                             = data.terraform_remote_state.eks.outputs.vpc_vpc_id
+  vpc_id                                 = data.terraform_remote_state.eks.outputs.vpc_id
   eks_cluster_oidc_issuer_url            = data.terraform_remote_state.eks.outputs.eks_cluster_oidc_issuer_url
 }
 

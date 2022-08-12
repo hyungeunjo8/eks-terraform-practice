@@ -1,6 +1,6 @@
-output "vpc_vpc_id" {
+output "vpc_id" {
   description = "vpc_id"
-  value       = module.vpc_pracitce.vpc_vpc_id
+  value       = module.vpc_pracitce.vpc_id
 }
 
 output "eks_cluster_certificate_authority_data" {

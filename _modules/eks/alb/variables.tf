@@ -16,7 +16,7 @@ variable "eks_cluster_certificate_authority_data" {
 }
 variable "eks_cluster_id" {
 }
-variable "vpc_vpc_id" {
+variable "vpc_id" {
 }
 variable "eks_cluster_oidc_issuer_url" {
 }

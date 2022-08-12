@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "bucket" {
-  bucket = var.bucket_name
+  bucket = var.name
 }
 
 resource "aws_vpc_endpoint" "s3" {

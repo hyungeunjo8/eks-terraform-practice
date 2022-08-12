@@ -5,4 +5,5 @@ eks_pod_iam_role_for_service_accounts_name = "iam-role-eks-terraform-practice"
 eks_service_account_policy = {
     AmazonS3FullAccess       = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
     AmazonDynamoDBFullAccess = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+    AmazonSQSFullAccess = "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
 }

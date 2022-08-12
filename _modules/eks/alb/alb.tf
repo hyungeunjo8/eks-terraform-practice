@@ -59,7 +59,7 @@ resource "helm_release" "release" {
       "serviceAccount.create"                                     = "true"
       "serviceAccount.name"                                       = var.lb_controller_service_account_name
       "region"                                                    = "${var.aws_region}"
-      "vpcId"                                                     = var.vpc_vpc_id
+      "vpcId"                                                     = var.vpc_id
       "image.repository"                                          = "${var.lb_controller_image_url}"
       "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn" = module.lb_controller_role.iam_role_arn
     }

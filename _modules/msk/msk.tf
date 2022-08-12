@@ -1,5 +1,5 @@
 resource "aws_msk_cluster" "cluster" {
-  cluster_name           = var.msk_cluster_name
+  cluster_name           = var.name
   kafka_version          = var.kafka_version
   number_of_broker_nodes = 2
 
@@ -10,7 +10,7 @@ resource "aws_msk_cluster" "cluster" {
 
   broker_node_group_info {
     instance_type  = "kafka.m5.large"
-    client_subnets = var.vpc_private_subnets
+    client_subnets = var.private_subnets
     storage_info {
       ebs_storage_info {
         volume_size = 10
@@ -41,9 +41,9 @@ resource "aws_msk_cluster" "cluster" {
 }
 
 resource "aws_security_group" "broker" {
-  name        = "${var.msk_cluster_name}-${var.vpc_vpc_id}"
-  description = "${var.msk_cluster_name} MSK Security Group"
-  vpc_id      = var.vpc_vpc_id
+  name        = "${var.name}-${var.vpc_id}"
+  description = "${var.name} MSK Security Group"
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = 9092
@@ -64,7 +64,7 @@ resource "aws_security_group" "broker" {
 
 resource "aws_msk_configuration" "msk_configuration" {
   kafka_versions = [var.kafka_version]
-  name           = var.msk_cluster_name
+  name           = var.name
 
   server_properties = <<PROPERTIES
 allow.everyone.if.no.acl.found=true
@@ -85,5 +85,5 @@ PROPERTIES
 }
 
 resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
-  name = "${var.msk_cluster_name}-msk_broker_logs"
+  name = "${var.name}-msk_broker_logs"
 }

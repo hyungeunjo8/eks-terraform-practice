@@ -1,10 +1,10 @@
-variable "msk_cluster_name" {
+variable "name" {
 }
 variable "kafka_version" {
 }
-variable "vpc_private_subnets" {
+variable "private_subnets" {
 }
-variable "vpc_vpc_id" {
+variable "vpc_id" {
 }
 variable "vpc_cidr_block" {
 }

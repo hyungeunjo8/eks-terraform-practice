@@ -1,8 +1,8 @@
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
 
-  cluster_name    = var.eks_cluster_name
-  cluster_version = var.eks_cluster_version
+  cluster_name    = var.name
+  cluster_version = var.eks_version
 
   cluster_endpoint_private_access = false
   cluster_endpoint_public_access  = true
@@ -43,7 +43,7 @@ module "eks" {
 }
 
 resource "aws_eks_addon" "coredns" {
-  cluster_name      = var.eks_cluster_name
+  cluster_name      = var.name
   addon_name        = "coredns"
   resolve_conflicts = "OVERWRITE"
 
@@ -53,7 +53,7 @@ resource "aws_eks_addon" "coredns" {
 }
 
 resource "aws_eks_addon" "kube-proxy" {
-  cluster_name      = var.eks_cluster_name
+  cluster_name      = var.name
   addon_name        = "kube-proxy"
   resolve_conflicts = "OVERWRITE"
 
@@ -63,7 +63,7 @@ resource "aws_eks_addon" "kube-proxy" {
 }
 
 resource "aws_eks_addon" "vpc-cni" {
-  cluster_name      = var.eks_cluster_name
+  cluster_name      = var.name
   addon_name        = "vpc-cni"
   resolve_conflicts = "OVERWRITE"
 
