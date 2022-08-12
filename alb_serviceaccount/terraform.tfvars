@@ -6,4 +6,5 @@ eks_service_account_policy = {
     AmazonS3FullAccess       = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
     AmazonDynamoDBFullAccess = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
     AmazonSQSFullAccess = "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
+    SecretsManagerReadWrite = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
 }
