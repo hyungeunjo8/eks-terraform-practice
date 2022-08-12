@@ -1,13 +1,11 @@
 # region
 aws_region = "ap-northeast-2"
 account_id          = "692609349536"
-# eks
-eks_cluster_name    = "eks"
-
 
 ## 아래는 초기 설정 시 변경이 필요한 것
 # name prefix
 prefix = "prefix"
+eks_cluster_name    = "eks"
 # codebuild
 github_repo         = "https://github.com/hyungeunjo8/eks-fargate-practice"
 image_tag           = "latest"
