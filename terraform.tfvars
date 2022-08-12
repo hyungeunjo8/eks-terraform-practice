@@ -3,11 +3,10 @@ aws_region = "ap-northeast-2"
 account_id          = "692609349536"
 redis_port = "6379"
 
-## 아래는 초기 설정 시 변경이 필요한 것
+## 변수 변경할 내역들
 # name prefix
 prefix = "prefix"
 eks_cluster_name    = "eks"
-# codebuild
 github_repo         = "https://github.com/hyungeunjo8/eks-fargate-practice"
 image_tag           = "latest"
 source_version      = "develop"
