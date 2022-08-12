@@ -7,7 +7,7 @@ EKS 및 기타 AWS 인프라 요소를 Terraform으로 구성한다.
 - 체크 박스된 것은 EKS pod에서 동작 확인
 - [x] vpc
 - [x] eks
-- [ ] msk
+- [x] msk
 - [x] s3
 - [x] dynamo
 - [ ] sqs

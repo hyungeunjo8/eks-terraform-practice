@@ -47,6 +47,14 @@ module "eks" {
       description = "Allow Redis"
       cidr_blocks = ["0.0.0.0/0"]
     }
+    msk_allow_access = {
+      type        = "egress"
+      protocol    = "tcp"
+      from_port   = "9092"
+      to_port     = "9092"
+      description = "Allow Redis"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 }
 
