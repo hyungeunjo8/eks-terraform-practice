@@ -80,18 +80,19 @@ module "sqs_pracice" {
 }
 
 module "cache_redis_pracice" {
-  source               = "./_modules/cache"
-  cluster_id           = "${var.prefix}-cache-redis"
-  engine               = "redis"
-  num_cache_nodes      = "1"
-  parameter_group_name = "${var.prefix}-default.redis3.2"
-  engine_version       = "3.2.10"
-  port                 = "6379"
-  node_type            = "cache.m4.large"
-  subnet_ids           = module.vpc_pracitce.private_subnets
-  vpc_id               = module.vpc_pracitce.vpc_id
-  vpc_cidr_block       = module.vpc_pracitce.vpc_cidr_block
-  subnet_group_name    = "${var.prefix}-cache-redis-subnet-group"
+  source     = "./_modules/cache"
+  cluster_id = "${var.prefix}-cache-redis"
+  # engine               = "redis"
+  num_node_groups         = "2"
+  replicas_per_node_group = "2"
+  # parameter_group_name = "${var.prefix}-default.redis3.2"
+  # engine_version       = "3.2.10"
+  port              = "6379"
+  node_type         = "cache.m4.large"
+  subnet_ids        = module.vpc_pracitce.private_subnets
+  vpc_id            = module.vpc_pracitce.vpc_id
+  vpc_cidr_block    = module.vpc_pracitce.vpc_cidr_block
+  subnet_group_name = "${var.prefix}-cache-redis-subnet-group"
 }
 
 module "memorydb_redis_pracice" {
