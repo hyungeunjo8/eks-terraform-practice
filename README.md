@@ -10,7 +10,7 @@ EKS 및 기타 AWS 인프라 요소를 Terraform으로 구성한다.
 - [x] msk
 - [x] s3
 - [x] dynamo
-- [ ] sqs
+- [x] sqs
 - [x] cache
 - [x] memorydb
 - [ ] rds

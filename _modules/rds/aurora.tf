@@ -4,17 +4,43 @@ module "aurora" {
   name           = var.name
   engine         = var.engine
   engine_version = var.engine_version
-  instance_class = var.instance_class
   instances      = var.instances
 
   vpc_id  = var.vpc_id
   subnets = var.subnets
 
-  allowed_cidr_blocks = [var.allowed_cidr_blocks]
+  database_name = var.default_database_name
 
-  storage_encrypted   = true
+  create_security_group = true
+  allowed_cidr_blocks   = [var.allowed_cidr_blocks]
+
   apply_immediately   = true
-  monitoring_interval = 10
+  skip_final_snapshot = true
 
-  enabled_cloudwatch_logs_exports = ["postgresql"]
+  master_username = ""
+  master_password = ""
+
+  vpc_security_group_ids = [aws_security_group.mysql_security_group.id]
+}
+
+resource "aws_security_group" "mysql_security_group" {
+  name        = "${var.name}-security-group"
+  description = "${var.name} Mysql Security Group"
+  vpc_id      = var.vpc_id
+
+  ingress {
+    from_port   = "3306"
+    to_port     = "3306"
+    protocol    = "tcp"
+    cidr_blocks = ["${var.allowed_cidr_blocks}"]
+    description = "mysql inbound port"
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "outbound port"
+  }
 }

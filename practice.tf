@@ -112,18 +112,22 @@ module "memorydb_redis_pracice" {
 module "rds_aurora_practice" {
   source         = "./_modules/rds"
   name           = "${var.prefix}-rds-aurora"
-  engine         = "aurora-postgresql"
-  engine_version = "11.12"
-  instance_class = "db.r6g.large"
+  engine         = "aurora-mysql"
+  engine_version = "5.7"
   instances = {
-    one = {}
+    1 = {
+      instance_class = "db.r5.large"
+    }
     2 = {
-      instance_class = "db.r6g.2xlarge"
+      identifier     = "mysql-static-1"
+      instance_class = "db.r5.2xlarge"
     }
   }
   vpc_id              = module.vpc_pracitce.vpc_id
   subnets             = module.vpc_pracitce.private_subnets
   allowed_cidr_blocks = module.vpc_pracitce.vpc_cidr_block
+
+  default_database_name = "example"
 }
 
 module "secretsmanager_practice" {

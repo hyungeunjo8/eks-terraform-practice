@@ -55,6 +55,14 @@ module "eks" {
       description = "Allow Redis"
       cidr_blocks = ["0.0.0.0/0"]
     }
+    mysql_allow_access = {
+      type        = "egress"
+      protocol    = "tcp"
+      from_port   = "3306"
+      to_port     = "3306"
+      description = "Allow Mysql"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 }
 
