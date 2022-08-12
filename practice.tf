@@ -30,6 +30,7 @@ module "eks_practice" {
 
   vpc_id          = module.vpc_pracitce.vpc_id
   private_subnets = module.vpc_pracitce.private_subnets
+  redis_port      = var.redis_port
 }
 
 module "msk_practice" {
@@ -84,10 +85,10 @@ module "cache_redis_pracice" {
   cluster_id = "${var.prefix}-cache-redis"
   # engine               = "redis"
   num_node_groups         = "2"
-  replicas_per_node_group = "2"
+  replicas_per_node_group = "1"
   # parameter_group_name = "${var.prefix}-default.redis3.2"
   # engine_version       = "3.2.10"
-  port              = "6379"
+  port              = var.redis_port
   node_type         = "cache.m4.large"
   subnet_ids        = module.vpc_pracitce.private_subnets
   vpc_id            = module.vpc_pracitce.vpc_id

@@ -5,3 +5,6 @@ variable "private_subnets" {
 }
 variable "eks_version" {}
 variable "name" {}
+variable "redis_port" {
+
+}

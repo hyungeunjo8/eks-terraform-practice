@@ -1,6 +1,7 @@
 # region
 aws_region = "ap-northeast-2"
 account_id          = "692609349536"
+redis_port = "6379"
 
 ## 아래는 초기 설정 시 변경이 필요한 것
 # name prefix

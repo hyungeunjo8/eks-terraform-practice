@@ -23,3 +23,6 @@ variable "public_subnets" {
 }
 variable "private_subnets" {
 }
+variable "redis_port" {
+
+}

@@ -39,6 +39,14 @@ module "eks" {
       source_cluster_security_group = true
       description                   = "Allow access from control plane to webhook port of AWS load balancer controller"
     }
+    redis_allow_access = {
+      type        = "egress"
+      protocol    = "tcp"
+      from_port   = "${var.redis_port}"
+      to_port     = "${var.redis_port}"
+      description = "Allow Redis"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 }
 
